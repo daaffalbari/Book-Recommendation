@@ -150,7 +150,19 @@ Dalam dataset tersebut berisi tiga (3) berkas CSV ([Comma-separated Values](http
   - `Location` : Lokasi tempat tinggal pengguna
   - `Age` : Umur pengguna
 
-Deskripsi statistik untuk _dataset_ `ratings` pada fitur `Book-Rating` dapat dilihat pada gambar di bawah ini.
+Deskripsi statistik untuk _dataset_ `ratings` pada fitur `Book-Rating` dapat dilihat pada tabel di bawah ini.
+
+|       | User-ID      | Book-Rating  |
+|-------|--------------|--------------|
+| count | 1.149780e+06 | 1.149780e+06 |
+| mean  | 1.403864e+05 | 2.866950e+00 |
+| std   | 8.056228e+04 | 3.854184e+00 |
+| min   | 2.000000e+00 | 0.000000e+00 |
+| 25%   | 7.034500e+04 | 0.000000e+00 |
+| 50%   | 1.410100e+05 | 0.000000e+00 |
+| 75%   | 2.110280e+05 | 7.000000e+00 |
+| max   | 2.788540e+05 | 1.000000e+01 |
+
 
 [← Kembali ke Daftar Isi](#daftar-isi 'Daftar Isi')
 
@@ -180,8 +192,13 @@ Tahap ini dilakukan pengacakan dataframe ratings terlebih dahulu, lalu kemudian 
 
   Kemudian pada _dataframe_ `Users`, terdapat sebanyak 110.762 _missing value_ pada fitur umur. Sehingga data tersebut dapat diganti atau diisi dengan nilai mean atau nilai yang paling sering muncul dalam data umur tersebut.
 
-![image](https://github.com/daaffalbari/Book-Recommendation/assets/73302268/a9fb81b3-cbc3-4b51-9423-5a51382c4026)
+  | User-ID     0 |       |
+|---------------|-------|
+| Location    0 |       |
+| Age         0 |       |
+| dtype         | int64 |
 
+Tabel di atas adalah users setelah di lakukan cleaning pada missing values
 
 - **Pengecekan Data Duplikat**  
   Melakukan pengecekan data duplikat atau data yang sama pada masing-masing _dataframe_. Hasilnya tidak ada data yang duplikat dari ketiga _dataframe_.
