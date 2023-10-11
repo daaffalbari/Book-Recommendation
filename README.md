@@ -16,7 +16,7 @@
 
 Dalam proyek ini akan membahas permasalahan mengenai minat membaca buku masyarakat Indonesia yang berhubungan langsung dengan perkembangan teknologi seperti media sosial dan _e-commerce_ di Indonesia.
 
-<img src="https://user-images.githubusercontent.com/64983961/189553721-da2a9077-a686-4788-9329-2e514b2e9168.png" alt="E-Book Illustration" title="E-Book Illustration" width="100%">
+<img src="https://github.com/daaffalbari/Book-Recommendation/assets/73302268/d8c6679a-4c04-416a-bb68-8588da2b826a" alt="E-Book Illustration" title="E-Book Illustration" width="100%">
 
 Dalam beberapa dekade terakhir, perkembangan teknologi dan juga internet sangat mempengaruhi minat membaca buku masyarakat Indonesia. Contohnya adalah hadirnya media sosial, dan platform seperti YouTube, Netflix, Amazon, dan layanan web sejenis yang lainnya membuat masyarakat lebih banyak menyukai menggunakan platform tersebut sebagai hiburan dan sumber untuk memperoleh informasi. Berbeda pada zaman dahulu di mana masyarakat Indonesia masih bergantung pada media cetak contohnya adalah buku untuk memperoleh ilmu dan informasi.
 
@@ -48,14 +48,9 @@ Berdasarkan rumusan masalah yang telah dipaparkan di atas, maka didapatkan tujua
 
 ### Solution Statements
 
-Di bawah ini merupakan gambar diagram alir kerja (_workflow_) yang dilakukan dalam mengerjakan proyek ini.
-
-<img src="https://user-images.githubusercontent.com/64983961/189554698-c07b9c98-180b-46cd-9e3c-c7898d3e4da4.png" alt="Recommendation System Workflow" title="Recommendation System Workflow">
-
 Berdasarkan tujuan dari proyek yang telah dipaparkan di atas, maka berikut adalah beberapa solusi yang dapat dilakukan agar dapat mencapai tujuan dari proyek ini, yaitu:
 
 1. Tahap pra-pemrosesan data atau _data preprocessing_ merupakan tahap untuk mengubah data mentah atau _raw data_ menjadi data yang bersih atau _clean data_ yang siap untuk digunakan pada proses selanjutnya. Tahap ini dapat dilakukan dengan cara, yaitu:
-   - Melakukan penyesuaian dan mengubah nama kolom atau atribut sehingga memudahkan ketika proses pemanggilan _dataset_ beserta nama atribut atau kolom tertentu.
    - Menggabungkan data yang terpisah sehingga dapat digunakan pada tahap selanjutnya.
 2. Tahap persiapan data atau _data preparation_ merupakan proses transformasi pada data sehingga data menjadi bentuk yang cocok untuk melakukan proses pemodelan di tahap selanjutnya. Tahap ini dapat dilakukan dengan beberapa teknik, yaitu:
    - Melakukan pengecekan nilai data yang kosong, tidak ada, ataupun _null_ (_missing value_) dan menghapus data tersebut atau mengganti/mengisinya dengan suatu nilai tertentu.
@@ -93,7 +88,7 @@ Berdasarkan tujuan dari proyek yang telah dipaparkan di atas, maka berikut adala
 
 ## Data Understanding
 
-[<img src="https://user-images.githubusercontent.com/64983961/189554742-1d36ac13-035a-4130-8722-92b37420e416.png" alt="Book Recommendation Kaggle Dataset" title="Book Recommendation Kaggle Dataset" width="100%">](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
+[<img src="https://github.com/daaffalbari/Book-Recommendation/assets/73302268/93302e30-7975-41e4-af63-a86126b34c10" alt="Book Recommendation Kaggle Dataset" title="Book Recommendation Kaggle Dataset" width="100%">](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset)
 
 Data yang digunakan dalam proyek ini adalah _dataset_ yang diambil dari Kaggle Dataset. Di bawah ini adalah informasi detail tentang _dataset_ yang digunakan.
 
@@ -110,7 +105,11 @@ Dalam dataset tersebut berisi tiga (3) berkas CSV ([Comma-separated Values](http
 
 - **Books.csv**, memiliki atribut atau fitur sebagai berikut,
 
-  <img src="https://user-images.githubusercontent.com/64983961/189554870-865889f3-55e8-4ca7-8d57-58aabbf3ad06.png" alt="Deskripsi Variabel Books" title="Deskripsi Variabel Books">
+|   | ISBN       | Book-Title           | Book-Author          | Year-Of-Publication | Publisher               | Image-URL-S                                       | Image-URL-M                                       | Image-URL-L                                       |
+|---|------------|----------------------|----------------------|---------------------|-------------------------|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| 0 | 0195153448 | Classical Mythology  | Mark P. O. Morford   | 2002                | Oxford University Press | http://images.amazon.com/images/P/0195153448.0... | http://images.amazon.com/images/P/0195153448.0... | http://images.amazon.com/images/P/0195153448.0... |
+| 1 | 0002005018 | Clara Callan         | Richard Bruce Wright | 2001                | HarperFlamingo Canada   | http://images.amazon.com/images/P/0002005018.0... | http://images.amazon.com/images/P/0002005018.0... | http://images.amazon.com/images/P/0002005018.0... |
+| 2 | 0060973129 | Decision in Normandy | Carlo D'Este         | 1991                | HarperPerennial         | http://images.amazon.com/images/P/0060973129.0... | http://images.amazon.com/images/P/0060973129.0... | http://images.amazon.com/images/P/0060973129.0... |
 
   - `ISBN` : _International Standard Book Number_
   - `Book-Title` : Judul buku
@@ -123,7 +122,14 @@ Dalam dataset tersebut berisi tiga (3) berkas CSV ([Comma-separated Values](http
 
 - **Ratings.csv**, memiliki atribut atau fitur sebagai berikut,
 
-  <img src="https://user-images.githubusercontent.com/64983961/189554969-86a96dd9-365f-40f8-83b9-28a8115349e9.png" alt="Deskripsi Variabel Ratings" title="Deskripsi Variabel Ratings">
+|   | User-ID | ISBN       | Book-Rating |
+|---|---------|------------|-------------|
+| 0 | 276725  | 034545104X | 0           |
+| 1 | 276726  | 0155061224 | 5           |
+| 2 | 276727  | 0446520802 | 0           |
+| 3 | 276729  | 052165615X | 3           |
+| 4 | 276729  | 0521795028 | 6           |
+
 
   - `User-ID` : Identitas unik pengguna berupa bilangan bulat atau integer
   - `ISBN` : _International Standard Book Number_
@@ -131,7 +137,14 @@ Dalam dataset tersebut berisi tiga (3) berkas CSV ([Comma-separated Values](http
 
 - **Users.csv**, memiliki atribut atau fitur sebagai berikut,
 
-  <img src="https://user-images.githubusercontent.com/64983961/189555005-eb7094f5-9875-4dfb-baa6-b6dcaeda11ff.png" alt="Deskripsi Variabel Users" title="Deskripsi Variabel Users">
+|   | User-ID | Location                           | Age  |
+|---|---------|------------------------------------|------|
+| 0 | 1       | nyc, new york, usa                 | NaN  |
+| 1 | 2       | stockton, california, usa          | 18.0 |
+| 2 | 3       | moscow, yukon territory, russia    | NaN  |
+| 3 | 4       | porto, v.n.gaia, portugal          | 17.0 |
+| 4 | 5       | farnborough, hants, united kingdom | NaN  |
+
 
   - `User-ID` : Identitas unik pengguna berupa bilangan bulat atau integer
   - `Location` : Lokasi tempat tinggal pengguna
@@ -139,42 +152,12 @@ Dalam dataset tersebut berisi tiga (3) berkas CSV ([Comma-separated Values](http
 
 Deskripsi statistik untuk _dataset_ `ratings` pada fitur `Book-Rating` dapat dilihat pada gambar di bawah ini.
 
-<img src="https://user-images.githubusercontent.com/64983961/189554983-d73a1d05-509f-431d-8fbf-650beae2e541.png" alt="Deskripsi Statistik Ratings" title="Deskripsi Statistik Ratings">
-
-Dari gambar di atas dapat dilihat bahwa terdapat,
-
-- Total jumlah data (`count`) sebanyak 1.149.780;
-- Rata-rata _rating_ (`mean`) 3;
-- Simpangan baku/standar deviasi _rating_ (`std`) 4;
-- _Rating_ Minimal (`min`), kuartil bawah/Q1 _rating_ (`25%`), kuartil tengah/Q2/median _rating_ (`50%`) 0;
-- Kuartil atas/Q3 _rating_ (`75%`) 7;
-- _Rating_ maksimum (`max`) 10
-
-Berikut adalah visualisasi grafik histogram frekuensi sebaran data _rating_ pengguna terhadap buku yang sudah pernah dibaca, mulai dari _rating_ 1 hingga _rating_ 10.
-
-<img src="https://user-images.githubusercontent.com/64983961/189555048-8885fa77-3d34-4abc-a793-972589637fd1.png" alt="Grafik Histogram Frekuensi Sebaran Data Rating" title="Grafik Histogram Frekuensi Sebaran Data Rating" width="100%">
-
-Berdasarkan hasil visualisasi grafik histogram "Jumlah Rating Buku" di atas, dapat disimpulkan bahwa _rating_ terbanyak dari buku yang sudah pernah dibaca adalah _rating_ 0, dengan jumlah _rating_ kira-kira sebanyak lebih dari 700.000. _Rating_ 0 tersebut dapat menyebabkan bias dan mempengaruhi hasil analisis, sehingga data dengan _rating_ 0 tersebut dapat dihapus pada tahap [_data preparation_](#data-preparation).
-
 [← Kembali ke Daftar Isi](#daftar-isi 'Daftar Isi')
 
 ## Data Preprocessing
 
 Pada tahap pra-pemrosesan data atau _data preprocessing_ dilakukan untuk mengubah data mentah (_raw data_) menjadi data yang bersih (_clean data_) yang siap untuk digunakan pada proses selanjutnya. Ada beberapa tahap yang dilakukan pada _data preprocessing_, yaitu:
 
-- **Mengubah Nama Kolom/Atribut/Fitur**  
-  Proses pengubahan nama kolom atau atribut atau fitur dari masing-masing _dataframe_ bertujuan untuk memudahkan proses pemanggilan _dataframe_ tersebut.
-  - Books
-
-    <img src="https://user-images.githubusercontent.com/64983961/189573236-955e8cf5-bca2-4b61-9383-9bca264aaecc.png" alt="Preprocessing Data Books" title="Preprocessing Data Books">
-
-  - Ratings
-
-    <img src="https://user-images.githubusercontent.com/64983961/189555153-8a4ce0c1-0a96-4d1e-a95b-3d92c455242c.png" alt="Preprocessing Data Ratings" title="Preprocessing Data Ratings">
-
-  - Users
-
-    <img src="https://user-images.githubusercontent.com/64983961/189555165-4ccdb1b4-2c10-47ad-8541-6f480bc803f7.png" alt="Preprocessing Data Users" title="Preprocessing Data Users">
 - **Menggabungkan Data ISBN**  
   Penggabungan data ISBN buku dilakukan menggunakan fungsi `.concatenate` dengan bantuan _library_ [`numpy`](https://numpy.org). Data ISBN terdapat pada _dataframe_ buku dan _dataframe_ _rating_, sehingga dilakukan penggabungan data tersebut pada atribut atau kolom `isbn`.
 - **Menggabungkan Data User**  
@@ -189,17 +172,12 @@ Pada tahap persiapan data atau _data preparation_ dilakukan proses transformasi 
 - **Pengecekan _Missing Value_**  
   Proses pengecekan data yang kosong, hilang, _null_, atau _missing value_ ditemukan pada _dataframe_ `books`, sehingga data yang _missing_ tersebut dihapus atau di-_drop_.
 
-  Sedangkan pada _dataframe_ `ratings` tidak ditemukan adanya _missing value_, tetapi perlu dilakukan penghapusan _rating_ 0 dikarenakan _rating_ 0 tersebut merupakan rating yang paling banyak berdasarkan proses [_data understanding_](#data-understanding) sebelumnya, yaitu sebanyak 716.109 data dengan _rating_ 0. Hal tersebut dapat menyebabkan bias pada hasil analisis data. Kategori _rating_ 0 tidak diikutsertakan, sehingga diperoleh hasil visualisasi grafik histogram di bawah ini.
+  Sedangkan pada _dataframe_ `ratings` tidak ditemukan adanya _missing value_.
 
-  <img src="https://user-images.githubusercontent.com/64983961/189555311-bf883e83-363a-49dd-93f5-abf384e734db.png" alt="Grafik Rating Setelah Perbaikan Missing Value" title="Grafik Rating Setelah Perbaikan Missing Value" width="100%">
+  Kemudian pada _dataframe_ `Users`, terdapat sebanyak 110.762 _missing value_ pada fitur umur. Sehingga data tersebut dapat diganti atau diisi dengan nilai mean atau nilai yang paling sering muncul dalam data umur tersebut.
 
-  Berdasarkan hasil visualisasi grafik histogram di atas dengan _rating_ 0 yang telah dihapus, dapat dilihat distribusi frekuensi data yang lebih rapi dan jelas, terutama pada data _rating_ 1 hingga _rating_ 4.
+![image](https://github.com/daaffalbari/Book-Recommendation/assets/73302268/a9fb81b3-cbc3-4b51-9423-5a51382c4026)
 
-  Kemudian pada _dataframe_ `Users`, terdapat sebanyak 110.762 _missing value_ pada fitur umur. Sehingga data tersebut dapat diganti atau diisi dengan nilai modus atau nilai yang paling sering muncul dalam data umur tersebut.
-
-  <img src="https://user-images.githubusercontent.com/64983961/189555376-3a3bd63e-4556-4c67-8f64-00d7a1e2c309.png" alt="Grafik Umur Users Setelah Perbaikan Missing Value" title="Grafik Umur Users Setelah Perbaikan Missing Value">
-
-  Berdasarkan hasil visualisasi grafik histogram umur pengguna di atas dapat dilihat bahwa rentang umur pengguna paling banyak berada pada umur 20 hingga 30-an.
 
 - **Pengecekan Data Duplikat**  
   Melakukan pengecekan data duplikat atau data yang sama pada masing-masing _dataframe_. Hasilnya tidak ada data yang duplikat dari ketiga _dataframe_.
@@ -214,33 +192,50 @@ Tahap selanjutnya adalah proses _modeling_ atau membuat model _machine learning_
 
 Berdasarkan tahap pemahaman data atau [_data understanding_](#data-understanding 'Data Understanding') sebelumnya, dapat dilihat bahwa data untuk masing-masing _dataframe_, yaitu data buku, _rating_, dan _users_ tergolong data yang cukup banyak, mencapai ratusan hingga jutaan data. Hal tersebut akan berdampak pada biaya yang akan diperlukan untuk melakukan proses pemodelan _machine learning_, seperti memakan waktu yang lama dan _resource_ RAM ataupun GPU yang cukup besar. Oleh karena itu, dalam kasus ini data yang akan digunakan untuk proses pemodelan _machine learning_ data akan dibatasi hanya 10.000 baris data buku dan 5000 baris data _rating_.
 
-```python
-books   = books[:10000]
-ratings = ratings[:5000]
-```
 
 1. **Content-based Recommendation**
 
    - TF-IDF Vectorizer  
      TF-IDF Vectorizer akan mentransformasikan teks menjadi representasi angka yang memiliki makna tertentu dalam bentuk matriks. Ukuran matriks yang diperoleh adalah sebesar 10.000 data buku dan 5.575 data _author_ atau penulis buku.
 
-     <img src="https://user-images.githubusercontent.com/64983961/189569829-bc2722db-c89b-4d8c-89fb-a4ec784beee3.png" alt="Tabel Hasil TF-IDF Vectorizer" title="Tabel Hasil TF-IDF Vectorizer">
+|                                        | quin | ry  | coen | katie | company | blume | lustbader | hawks | napier | cordingly | cast | cash | kindred | sobel | sachar | clegg | mcalister | candice | limbaugh | stern |
+|----------------------------------------|------|-----|------|-------|---------|-------|-----------|-------|--------|-----------|------|------|---------|-------|--------|-------|-----------|---------|----------|-------|
+| Book-Title                             |      |     |      |       |         |       |           |       |        |           |      |      |         |       |        |       |           |         |          |       |
+| The Very Hungry Caterpillar Board Book | 0.0  | 0.0 | 0.0  | 0.0   | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0       | 0.0  | 0.0  | 0.0     | 0.0   | 0.0    | 0.0   | 0.0       | 0.0     | 0.0      | 0.0   |
+| Technical Writing                      | 0.0  | 0.0 | 0.0  | 0.0   | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0       | 0.0  | 0.0  | 0.0     | 0.0   | 0.0    | 0.0   | 0.0       | 0.0     | 0.0      | 0.0   |
+| Five Children and It                   | 0.0  | 0.0 | 0.0  | 0.0   | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0       | 0.0  | 0.0  | 0.0     | 0.0   | 0.0    | 0.0   | 0.0       | 0.0     | 0.0      | 0.0   |
+| Rose Madder                            | 0.0  | 0.0 | 0.0  | 0.0   | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0       | 0.0  | 0.0  | 0.0     | 0.0   | 0.0    | 0.0   | 0.0       | 0.0     | 0.0      | 0.0   |
+| Becoming a Thinking Christian          | 0.0  | 0.0 | 0.0  | 0.0   | 0.0     | 0.0   | 0.0       | 0.0   | 0.0    | 0.0       | 0.0  | 0.0  | 0.0     | 0.0   | 0.0    | 0.0   | 0.0       | 0.0     | 0.0      | 0.0   |
 
    - _Cosine Similarity_  
      _Cosine Similarity_ akan melakukan perhitungan derajat kesamaan (_similarity degree_) antar judul buku. Ukuran matriks yang diperoleh adalah sebesar 10.000 data buku dan 10.000 data buku juga.
 
-     <img src="https://user-images.githubusercontent.com/64983961/189569832-eaddebce-e7b1-45a7-a666-10a9469067b5.png" alt="Tabel Hasil TF-IDF Vectorizer" title="Tabel Hasil TF-IDF Vectorizer">
+| Book-Title           | Classical Mythology | Clara Callan | Decision in Normandy | Flu: The Story of the Great Influenza Pandemic of 1918 and the Search for the Virus That Caused It | The Mummies of Urumchi | The Kitchen God's Wife | What If?: The World's Foremost Military Historians Imagine What Might Have Been | PLEADING GUILTY | Under the Black Flag: The Romance and the Reality of Life Among the Pirates | Where You'll Find Me: And Other Stories | ... | Kaplan GRE Exam 2004 | Around the World in Eighty Days (Tor Classics) | The Exploits of the Incomparable Mulla Nasrudin / The Subtleties of the Inimitable Mulla Nasrudin | The Hours : A Novel | Beloved (Penguin Great Books of the 20th Century) | Read This and Tell Me What It Says : Stories (Bard Book) | The Star Rover | Die Keltennadel. | Tod in der Datscha. | Dunkel. |
+|----------------------|---------------------|--------------|----------------------|----------------------------------------------------------------------------------------------------|------------------------|------------------------|---------------------------------------------------------------------------------|-----------------|-----------------------------------------------------------------------------|-----------------------------------------|-----|----------------------|------------------------------------------------|---------------------------------------------------------------------------------------------------|---------------------|---------------------------------------------------|----------------------------------------------------------|----------------|------------------|---------------------|---------|
+| Book-Title           |                     |              |                      |                                                                                                    |                        |                        |                                                                                 |                 |                                                                             |                                         |     |                      |                                                |                                                                                                   |                     |                                                   |                                                          |                |                  |                     |         |
+| Classical Mythology  | 1.0                 | 0.0          | 0.0                  | 0.0                                                                                                | 0.0                    | 0.0                    | 0.0                                                                             | 0.0             | 0.0                                                                         | 0.0                                     | ... | 0.0                  | 0.0                                            | 0.0                                                                                               | 0.0                 | 0.0                                               | 0.0                                                      | 0.0            | 0.0              | 0.0                 | 0.0     |
+| Clara Callan         | 0.0                 | 1.0          | 0.0                  | 0.0                                                                                                | 0.0                    | 0.0                    | 0.0                                                                             | 0.0             | 0.0                                                                         | 0.0                                     | ... | 0.0                  | 0.0                                            | 0.0                                                                                               | 0.0                 | 0.0                                               | 0.0                                                      | 0.0            | 0.0              | 0.0                 | 0.0     |
+| Decision in Normandy | 0.0                 | 0.0          | 1.0                  | 0.0                                                                                                | 0.0                    | 0.0                    | 0.0                                                                             | 0.0             | 0.0                                                                         | 0.0                                     | ... | 0.0                  | 0.0                                            | 0.0                                                                                               | 0.0                 | 0.0                                               | 0.0                                                      | 0.0            | 0.0              | 0.0                 | 0.0     |
+
 
    - Hasil _Top-N Recommendation_
      Hasil pengujian sistem rekomendasi dengan pendekatan _content-based recommendation_ adalah sebagai berikut.
 
-     <img src="https://user-images.githubusercontent.com/64983961/189569194-f9db3e41-7429-4ac4-b486-ff1c178098a6.png" alt="Content Based Pilih Buku" title="Content Based Pilih Buku" width="100%">
+|   | Book-Title                                        | Book-Author          |
+|---|---------------------------------------------------|----------------------|
+| 0 | Isola Dell Caduto                                 | Carlo Lucarelli      |
+| 1 | Un Giorno Dopo L'altro                            | Carlo Lucarelli      |
+| 2 | Almost blue (Stile libero)                        | Carlo Lucarelli      |
+| 3 | Tecniche di seduzione                             | Andrea De Carlo      |
+| 4 | Due di due (Bestsellers)                          | Andrea De Carlo      |
+| 5 | Kissing the Witch: Old Tales in New Skins         | Emma Donoghue        |
+| 6 | The DREAMS OUR STUFF IS MADE OF: How Science F... | Thomas M. Disch      |
+| 7 | The Bookshop : A Novel                            | Penelope Fitzgerald  |
+| 8 | Cruel As the Grave                                | Sharon Kay Penman    |
+| 9 | Naked Lunch                                       | William S. Burroughs |
 
-     Pada gambar di atas merupakan data berdasarkan judul buku yang dipilih oleh pengguna.
 
-     <img src="https://user-images.githubusercontent.com/64983961/189569197-edcf7f3e-1f42-4bdf-a464-5a87566110f6.png" alt="Content Based Hasil" title="Content Based Hasil">
-
-     Dapat dilihat bahwa sistem yang telah dibangun berhasil memberikan rekomendasi beberapa judul buku berdasarkan input atau masukan sebuah judul buku, yaitu "Proxies", dan diperoleh beberapa judul buku yang berdasarkan perhitungan sistem.
+     Dapat dilihat bahwa sistem yang telah dibangun berhasil memberikan rekomendasi beberapa judul buku berdasarkan input atau masukan sebuah judul buku, yaitu "Decision in Normandy", dan diperoleh beberapa judul buku yang berdasarkan perhitungan sistem.
 
 2. **Collaborative Filtering Recommendation**
 
@@ -252,17 +247,45 @@ ratings = ratings[:5000]
    - Split Training Data dan Validation Data  
      Tahap ini dilakukan pengacakan _dataframe ratings_ terlebih dahulu, lalu kemudian membagi data dengan rasio 80:20, di mana 80% untuk data latih (_training data_) dan 20% sisanya adalah untuk data uji (_validation data_).
 
-     <img src="https://user-images.githubusercontent.com/64983961/189555657-9262d0ad-75cc-4d07-85da-c6b05172bdb6.png" alt="Train Test Split Fraction" title="Train Test Split Fraction">
+      |      | User-ID | ISBN       | Book-Rating | user | book |
+      |------|---------|------------|-------------|------|------|
+      | 4362 | 278418  | 0060186534 | 0           | 678  | 4063 |
+      | 7083 | 278418  | 0590337785 | 0           | 678  | 6681 |
+      | 2346 | 277565  | 1862082626 | 0           | 308  | 2264 |
+      | 5413 | 278418  | 0373163177 | 0           | 678  | 5087 |
+      | 2266 | 277523  | 0446613843 | 10          | 288  | 386  |
+      | ...  | ...     | ...        | ...         | ...  | ...  |
+      | 5338 | 278418  | 0373114109 | 0           | 678  | 5015 |
+      | 5354 | 278418  | 0373114443 | 0           | 678  | 5031 |
+      | 3746 | 278144  | 0679459596 | 0           | 567  | 3525 |
+      | 869  | 277107  | 081297106X | 10          | 144  | 859  |
+      | 3980 | 278188  | 1551665344 | 7           | 587  | 3737 |
 
    - Model Development dan Hasil  
      Berdasarkan model yang telah di-_training_, berikut adalah hasil pengujian sistem rekomendasi buku dengan pendekatan _collaborative filtering recommendation_.
 
-     <img src="https://user-images.githubusercontent.com/64983961/189569257-e1665749-d50e-4af4-92b1-fe1c6351a071.png" alt="Collaborative Filtering Hasil" title="Collaborative Filtering Hasil">
+| Book with high ratings from user                                                                            |
+|-------------------------------------------------------------------------------------------------------------|
+| ----------------------------------------                                                                    |
+| ========================================                                                                    |
+| Top 10 Books Recommendation                                                                                 |
+| ----------------------------------------                                                                    |
+| Rebecca : Daphne Du Maurier                                                                                 |
+| Girl with a Pearl Earring : Tracy Chevalier                                                                 |
+| The Secret Life of Bees : Sue Monk Kidd                                                                     |
+| Life of Pi : Yann Martel                                                                                    |
+| The Girl Who Loved Tom Gordon : A Novel : Stephen King                                                      |
+| A Cold Heart: An Alex Delaware Novel : JONATHAN KELLERMAN                                                   |
+| The Golden Mean: In Which the Extraordinary Correspondence of Griffin &amp; Sabine Concludes : Nick Bantock |
+| Politically Correct Bedtime Stories: Modern Tales for Our Life and Times : James Finn Garner                |
+| The Watsons Go to Birmingham - 1963 (Yearling Newbery) : CHRISTOPHER PAUL CURTIS                            |
+| Oceano Mare : Alessandro Baricco                                                                            |
 
-     Berdasarkan hasil di atas, dapat dilihat bahwa sistem akan mengambil pengguna secara acak, yaitu pengguna dengan `user_id` **885**. Lalu akan dicari buku dengan _rating_ terbaik dari user tersebut, yaitu,
 
-     - **The Joy Luck Club** oleh **Amy Tan**
-     - **Awakening** oleh **Kate Chopin**
+     Berdasarkan hasil di atas, dapat dilihat bahwa sistem akan mengambil pengguna secara acak, yaitu pengguna dengan `user_id` **278418**. Lalu akan dicari buku dengan _rating_ terbaik dari user tersebut, yaitu,
+
+     - **Rebecca ** oleh **Daphne Du Maurier**
+     - **Girl with a Pearl Earring** oleh **Tracy Chevalier**
 
      Kemudian sistem akan membandingkan antara buku dengan _rating_ tertinggi dari _user_ dan semua buku, kecuali buku yang telah dibaca tersebut, lalu akan mengurutkan buku yang akan direkomendasikan berdasarkan nilai rekomendasi yang tertinggi. Dapat dilihat terdapat 10 daftar buku yang direkomendasikan oleh sistem.
 
@@ -279,11 +302,6 @@ ratings = ratings[:5000]
 
    Masih menggunakan data yang sama pada tahap [Modeling](#modeling 'Modeling') _content-based recommendation_, pada proses Hasil _Top-N Recommendation_, yaitu penulis buku atau `book_author` Toni Morrison, akan dilakuakn proses pencarian jumlah judul buku atau `book_title` dengan penulis atau _author_ yang sama. Pencarian tersebut menggunakan variabel baru yang di mana akan mengambil sebuah data buku yang telah dibaca oleh pengguna. Hasil yang diperoleh adalah Toni Morrison memiliki jumlah buku sebanyak 7 buah buku.
 
-   ```python
-   accuracy = (recommendations.shape[0] / readedBookSameAuthor) * 100
-   accuracy
-   ```
-
    Proses perhitungan akurasi dilakukan dengan membagi banyaknya rekomendasi buku yang dihasilkan, dibagi dengan banyaknya jumlah buku yang ditulis oleh _author_ atau penulis yang sama, kemudian dikalikan dengan 100. Sehingga diperoleh nilai **akurasi** sebesar **57.14%**.
 
 2. **Collaborative Filtering Recommendation**  
@@ -297,7 +315,8 @@ ratings = ratings[:5000]
 
    Berikut merupakan visualisasi hasil _training_ dan _validation error_ dari metrik RMSE serta _training_ dan _validation loss_ ke dalam grafik plot.
 
-   <img src="https://user-images.githubusercontent.com/64983961/189569295-2e5881ff-1038-46f4-8598-9af7df7291b0.png" alt="Model Training Plot" title="Model Training Plot">
+![image](https://github.com/daaffalbari/Book-Recommendation/assets/73302268/052d3478-8635-44df-8fae-fdaa199f6e0d)
+
 
 [← Kembali ke Daftar Isi](#daftar-isi 'Daftar Isi')
 
