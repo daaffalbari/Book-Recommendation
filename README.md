@@ -169,6 +169,10 @@ Pada tahap pra-pemrosesan data atau _data preprocessing_ dilakukan untuk menguba
 
 Pada tahap persiapan data atau _data preparation_ dilakukan proses transformasi pada data sehingga menjadi bentuk yang cocok untuk proses pemodelan nantinya. Ada beberapa tahap yang dilakukan pada _data preparation_, yaitu:
 
+- **Pembagian Dataset**
+  
+Tahap ini dilakukan pengacakan dataframe ratings terlebih dahulu, lalu kemudian membagi data dengan rasio 80:20, di mana 80% untuk data latih (training data) dan 20% sisanya adalah untuk data uji (validation data).
+
 - **Pengecekan _Missing Value_**  
   Proses pengecekan data yang kosong, hilang, _null_, atau _missing value_ ditemukan pada _dataframe_ `books`, sehingga data yang _missing_ tersebut dihapus atau di-_drop_.
 
@@ -190,7 +194,7 @@ Pada tahap persiapan data atau _data preparation_ dilakukan proses transformasi 
 
 Tahap selanjutnya adalah proses _modeling_ atau membuat model _machine learning_ yang dapat digunakan sebagai sistem rekomendasi untuk menentukan rekomendasi buku yang terbaik kepada pengguna dengan beberapa algoritma sistem rekomendasi tertentu.
 
-Berdasarkan tahap pemahaman data atau [_data understanding_](#data-understanding 'Data Understanding') sebelumnya, dapat dilihat bahwa data untuk masing-masing _dataframe_, yaitu data buku, _rating_, dan _users_ tergolong data yang cukup banyak, mencapai ratusan hingga jutaan data. Hal tersebut akan berdampak pada biaya yang akan diperlukan untuk melakukan proses pemodelan _machine learning_, seperti memakan waktu yang lama dan _resource_ RAM ataupun GPU yang cukup besar. Oleh karena itu, dalam kasus ini data yang akan digunakan untuk proses pemodelan _machine learning_ data akan dibatasi hanya 10.000 baris data buku dan 5000 baris data _rating_.
+Berdasarkan tahap pemahaman data atau [_data understanding_](#data-understanding 'Data Understanding') sebelumnya, dapat dilihat bahwa data untuk masing-masing _dataframe_, yaitu data buku, _rating_, dan _users_ tergolong data yang cukup banyak, mencapai ratusan hingga jutaan data. Hal tersebut akan berdampak pada biaya yang akan diperlukan untuk melakukan proses pemodelan _machine learning_, seperti memakan waktu yang lama dan _resource_ RAM ataupun GPU yang cukup besar. Oleh karena itu, dalam kasus ini data yang akan digunakan untuk proses pemodelan _machine learning_ data akan dibatasi hanya 10.000 baris data buku dan 7500 baris data _rating_.
 
 
 1. **Content-based Recommendation**
@@ -246,6 +250,7 @@ Berdasarkan tahap pemahaman data atau [_data understanding_](#data-understanding
 
    - Split Training Data dan Validation Data  
      Tahap ini dilakukan pengacakan _dataframe ratings_ terlebih dahulu, lalu kemudian membagi data dengan rasio 80:20, di mana 80% untuk data latih (_training data_) dan 20% sisanya adalah untuk data uji (_validation data_).
+
 
       |      | User-ID | ISBN       | Book-Rating | user | book |
       |------|---------|------------|-------------|------|------|
@@ -317,12 +322,14 @@ Berdasarkan tahap pemahaman data atau [_data understanding_](#data-understanding
 
 ![image](https://github.com/daaffalbari/Book-Recommendation/assets/73302268/052d3478-8635-44df-8fae-fdaa199f6e0d)
 
+Dari grafik di atas menunjukan bahwa model yang dibuat sudah bagus atau _Goodfit_.
+
 
 [← Kembali ke Daftar Isi](#daftar-isi 'Daftar Isi')
 
 ## Kesimpulan
 
-Kesimpulannya adalah model yang digunakan untuk melakukan rekomendasi buku berdasarkan teknik _Content-based Recommendation_ dan teknik _Collaborative Filtering Recommendation_ telah berhasil dibuat dan sesuai dengan preferensi pengguna. Pada _collaborative filtering_ diperlukan data _rating_ dari pengguna, sedangkan pada _content-based filtering_, data _rating_ tidak diperlukan karena analisis sistem rekomendasi akan berdasarkan atribut item dari masing-masing buku. Sistem rekomendasi dengan pendekatan _content-based recommendation_ dan _collaborative filtering recommendation_ memiliki kelebihan dan kekurangannya masing-masing.
+Kesimpulannya adalah model yang digunakan untuk melakukan rekomendasi buku berdasarkan teknik _Content-based Recommendation_ dan teknik _Collaborative Filtering Recommendation_ telah berhasil dibuat dan sesuai dengan preferensi pengguna. Dengan adanya model ini diharapkan bisa menyelesaikan masalah-masalah yang telah diuraikan di awal tadi. Pada _collaborative filtering_ diperlukan data _rating_ dari pengguna, sedangkan pada _content-based filtering_, data _rating_ tidak diperlukan karena analisis sistem rekomendasi akan berdasarkan atribut item dari masing-masing buku. Sistem rekomendasi dengan pendekatan _content-based recommendation_ dan _collaborative filtering recommendation_ memiliki kelebihan dan kekurangannya masing-masing.
 
 [← Kembali ke Daftar Isi](#daftar-isi 'Daftar Isi')
 
